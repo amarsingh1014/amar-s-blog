@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="post-container">
+    <h2 class="post-title">{{ post.title }}</h2>
+    <p class="post-date">Published on: {{ post.date_posted_ist.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    <div class="post-content">
+        <p>{{ post.content }}</p>
+    </div>
+    <a href="{{ url_for('home') }}" class="btn btn-secondary mt-3">Back to Home</a>
+</div>
+{% endblock %}

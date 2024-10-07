@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Posts tagged with "{{ tag.name }}"</h2>
+{% for post in posts %}
+<div class="post">
+    <h3><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h3>
+    <p>Published on: {{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    <div class="post-content">{{ post.content|safe|truncate(200) }}</div>
+    <p>Tags: 
+        {% for tag in post.tags %}
+        <a href="{{ url_for('tag', tag_name=tag.name) }}" class="badge badge-secondary">{{ tag.name }}</a>
+        {% endfor %}
+    </p>
+</div>
+{% endfor %}
+{% endblock %}
