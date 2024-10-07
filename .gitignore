@@ -1,0 +1,12 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore content folder (if it contains non-essential files)
+content/
+
+# Other common entries
+*.env
+*.DS_Store
+*.log
+*.sqlite3
