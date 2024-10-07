@@ -10,3 +10,6 @@ content/
 *.DS_Store
 *.log
 *.sqlite3
+
+# Ignore environment variables file
+.env

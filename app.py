@@ -5,7 +5,7 @@ import pytz  # Import pytz for timezone handling
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:nowisgood@localhost:5432/blog_db'  # Update with your credentials
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')  # Update with your credentials
 db = SQLAlchemy(app)
 
 # Existing Post model
