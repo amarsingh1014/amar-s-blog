@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate 
 from datetime import datetime
 import pytz  # Import pytz for timezone handling
 import os
@@ -8,9 +9,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')  # Update with your credentials
 db = SQLAlchemy(app)
+
+migrate = Migrate(app, db)
 
 # Existing Post model
 class Post(db.Model):
